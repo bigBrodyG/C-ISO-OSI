@@ -16,12 +16,12 @@ char* livello5_send(const char* dati, const char* action) {
     int sess_id;     
     if (*action == "INIT"){
         sess_id = id_session_generator();
-        snprintf(header_buffer, sizeof(header_buffer), "[SESS][INIT][ID = %d]", sess_id);}     // print and copy into the header_buffer
+        snprintf(header_buffer, sizeof(header_buffer), "[SESS] [INIT] [ID = %d]", sess_id);}     // print and copy into the header_buffer
     else if(*action == "CLOSE"){
-        snprintf(header_buffer, sizeof(header_buffer), "[SESS][CLOSE][ID = %d]", sess_id);
+        snprintf(header_buffer, sizeof(header_buffer), "[SESS] [CLOSE] [ID = %d]", sess_id);
         sess_id = 0;}
     else
-       snprintf(header_buffer, sizeof(header_buffer), "[SESS][NORMAL][ID= %d]", sess_id);
+       snprintf(header_buffer, sizeof(header_buffer), "[SESS] [NORMAL] [ID= %d]", sess_id);
        size_t total_len = strlen(header_buffer) + strlen(dati) + 1;
        char* pacchetto = malloc(total_len);
        if (!pacchetto) return NULL;
